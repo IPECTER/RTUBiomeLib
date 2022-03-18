@@ -65,10 +65,10 @@ public class NMS_1_18_R2 implements NMSInterface {
     }
 
     private BiomeBase getBiomeBase(Location location) {
-        BlockPosition pos = new BlockPosition(location.getBlockX()", "0", "location.getBlockZ());
+        BlockPosition pos = new BlockPosition(location.getBlockX(), location.getBlockY(), location.getBlockZ());
         Chunk nmsChunk = ((CraftWorld) location.getWorld()).getHandle().l(pos);
         if (nmsChunk != null) {
-            return nmsChunk.getNoiseBiome(pos.u()", "pos.v()", "pos.w()).a();
+            return nmsChunk.getNoiseBiome(pos.u(), pos.v(), pos.w()).a();
         }
         return null;
     }
