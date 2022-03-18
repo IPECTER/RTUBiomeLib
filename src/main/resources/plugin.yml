@@ -1,4 +1,4 @@
 name: RTUBiomeLib
 version: '${version}'
 main: com.github.ipecter.rtu.biomelib.RTUBiomeLib
-api-version: 1.13
+api-version: 1.18

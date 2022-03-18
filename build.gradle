@@ -21,12 +21,13 @@ repositories {
 dependencies {
     compileOnly 'org.spigotmc:spigot-api:1.18.2-R0.1-SNAPSHOT'
     implementation project(':NMS')
-    implementation project(':NMS_1_17_R1')
+    //implementation project(':NMS_1_17_R1')
     implementation project(':NMS_1_18_R1')
     implementation project(':NMS_1_18_R2')
+    //implementation project(':NMS_1_19_R1')
 }
 
-def targetJavaVersion = 16
+def targetJavaVersion = 17
 java {
     def javaVersion = JavaVersion.toVersion(targetJavaVersion)
     sourceCompatibility = javaVersion
@@ -42,11 +43,11 @@ tasks.withType(JavaCompile).configureEach {
     }
 }
 
-//processResources {
-//    def props = [version: version]
-//    inputs.properties props
-//    filteringCharset 'UTF-8'
-//    filesMatching('plugin.yml') {
-//        expand props
-//    }
-//}
+processResources {
+   def props = [version: version]
+   inputs.properties props
+   filteringCharset 'UTF-8'
+   filesMatching('plugin.yml') {
+       expand props
+   }
+}

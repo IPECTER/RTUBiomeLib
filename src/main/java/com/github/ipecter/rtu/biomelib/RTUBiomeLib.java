@@ -1,13 +1,10 @@
 package com.github.ipecter.rtu.biomelib;
 
 import com.github.ipecter.rtu.nms.NMSInterface;
-import com.github.ipecter.rtu.nms.NMS_1_17_R1;
 import com.github.ipecter.rtu.nms.NMS_1_18_R1;
 import com.github.ipecter.rtu.nms.NMS_1_18_R2;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
-
-import java.util.logging.Level;
 
 public final class RTUBiomeLib extends JavaPlugin {
     private static NMSInterface nmsInterface;
@@ -25,12 +22,7 @@ public final class RTUBiomeLib extends JavaPlugin {
             nmsInterface = new NMS_1_18_R1();
         } else if (Bukkit.getVersion().contains("1.18")) {
             nmsInterface = new NMS_1_18_R1();
-        } else if (Bukkit.getVersion().contains("1.17.1")) {
-            nmsInterface = new NMS_1_17_R1();
-        } else if (Bukkit.getVersion().contains("1.17")) {
-            nmsInterface = new NMS_1_17_R1();
-        }
-        else{
+        }else{
             Bukkit.getLogger().warning("[ RTUBiomeLib ] Server version is unsupported version, Disabling RTUBiomeLib...");
             this.getServer().getPluginManager().disablePlugin(this);
         }
