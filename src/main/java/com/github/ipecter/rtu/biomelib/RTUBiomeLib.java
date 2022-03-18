@@ -9,9 +9,9 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.List;
 
-public final class RTUBiomeLib extends JavaPlugin implements NMSInterface {
+public final class RTUBiomeLib extends JavaPlugin{
     private static NMSInterface nmsInterface;
-    public NMSInterface getNmsInterface() {
+    public static NMSInterface getNmsInterface() {
         return nmsInterface;
     }
     @Override
@@ -26,6 +26,7 @@ public final class RTUBiomeLib extends JavaPlugin implements NMSInterface {
             nmsInterface = new NMS_1_18_R1();
         }
 
+
     }
 
     @Override
@@ -33,13 +34,4 @@ public final class RTUBiomeLib extends JavaPlugin implements NMSInterface {
         Bukkit.getLogger().info("RTUBiomeLib Disable");
     }
 
-    @Override
-    public static final String getBiomeName(Location location) {
-        nmsInterface.getBiomeName(location);
-    }
-
-    @Override
-    public static List<String> getBiomesName() {
-        return nmsInterface.getBiomesName();
-    }
 }
