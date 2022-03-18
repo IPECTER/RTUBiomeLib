@@ -1,0 +1,16 @@
+plugins {
+    id 'java'
+}
+
+group = 'com.github.ipecter.rtu'
+version = '1.0'
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+}
+
+dependencies {
+    compileOnly 'org.spigotmc:spigot:1.17.1-R0.1-SNAPSHOT'
+    implementation project(':NMS')
+}
