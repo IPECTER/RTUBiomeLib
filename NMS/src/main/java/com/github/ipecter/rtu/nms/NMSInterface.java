@@ -2,7 +2,7 @@ package com.github.ipecter.rtu.nms;
 
 import org.bukkit.Location;
 
-import java.util.List;
+import java.util.*;
 
 public interface NMSInterface {
     String getBiomeName(Location location);
