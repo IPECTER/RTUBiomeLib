@@ -15,7 +15,7 @@ ex) minecraft:birch_biome
 //return all biomes name in server (included custom biome like "new:where")
 
 
-**List<String<String>> getBiomesNameByFabricTag()**
+**List<String<String>> getBiomesNameByFabricTag(String)**
 
 ex) getBiomesNameByFabric("is_nether")  is  {"minecraft:nether_wastes", "minecraft:basalt_deltas", "minecraft:soul_sand_valley", "minecraft:crimson_forest", "minecraft:warped_forest"}
 
