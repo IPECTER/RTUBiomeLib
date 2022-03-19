@@ -7,7 +7,7 @@
 
 ex) new:where
 
-ex) minecraft:birch_biome
+ex) minecraft:birch_forest
 
 
 **List<String<String>> getBiomesName()**
