@@ -9,7 +9,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 public final class RTUBiomeLib extends JavaPlugin {
     private static NMSInterface nmsInterface;
 
-    public static NMSInterface getNmsInterface() {
+    public static NMSInterface getInterface() {
         return nmsInterface;
     }
 
