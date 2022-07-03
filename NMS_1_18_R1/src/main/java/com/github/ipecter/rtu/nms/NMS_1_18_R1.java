@@ -2,8 +2,6 @@ package com.github.ipecter.rtu.nms;
 
 import net.minecraft.core.BlockPosition;
 import net.minecraft.core.IRegistry;
-import net.minecraft.core.IRegistryWritable;
-import net.minecraft.resources.MinecraftKey;
 import net.minecraft.server.dedicated.DedicatedServer;
 import net.minecraft.world.level.biome.BiomeBase;
 import net.minecraft.world.level.chunk.Chunk;
@@ -15,17 +13,17 @@ import org.bukkit.craftbukkit.v1_18_R1.CraftWorld;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
+
 public class NMS_1_18_R1 implements NMSInterface {
     DedicatedServer dedicatedServer = ((CraftServer) Bukkit.getServer()).getServer();
     @Override
     public String getBiomeName(Location location) {
-        IRegistryWritable<BiomeBase> registry = dedicatedServer.aV().b(IRegistry.aR);
-        return registry.b(getBiomeBase(location)).a();
+        return dedicatedServer.n.d(IRegistry.aR).b(getBiomeBase(location)).toString();
     }
 
     @Override
     public List<String> getBiomesName() {
-        return dedicatedServer.aV().b(IRegistry.aR).d().stream().map(minecraftKey -> minecraftKey.toString()).collect(Collectors.toList());
+        return dedicatedServer.n.d(IRegistry.aR).d().stream().map(minecraftKey -> minecraftKey.toString()).collect(Collectors.toList());
     }
     @Override
     public List<String> getBiomesNameByFabricTag(String groupName){
@@ -56,7 +54,6 @@ public class NMS_1_18_R1 implements NMSInterface {
                 return null;   
         }
     }
-
     private BiomeBase getBiomeBase(Location location) {
         BlockPosition pos = new BlockPosition(location.getBlockX(), location.getBlockY(), location.getBlockZ());
         Chunk nmsChunk = ((CraftWorld) location.getWorld()).getHandle().l(pos);

@@ -2,7 +2,6 @@ package com.github.ipecter.rtu.nms;
 
 import net.minecraft.core.BlockPosition;
 import net.minecraft.core.IRegistry;
-import net.minecraft.resources.MinecraftKey;
 import net.minecraft.server.dedicated.DedicatedServer;
 import net.minecraft.world.level.biome.BiomeBase;
 import net.minecraft.world.level.chunk.Chunk;
@@ -12,7 +11,6 @@ import org.bukkit.craftbukkit.v1_18_R2.CraftServer;
 import org.bukkit.craftbukkit.v1_18_R2.CraftWorld;
 
 import java.util.Arrays;
-import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -22,16 +20,17 @@ public class NMS_1_18_R2 implements NMSInterface {
     @Override
     public String getBiomeName(Location location) {
         IRegistry<BiomeBase> registry = dedicatedServer.Q.b(IRegistry.aP);
-        return registry.b(getBiomeBase(location)).a();
+        return registry.b(getBiomeBase(location)).toString();
     }
 
     @Override
     public List<String> getBiomesName() {
         return dedicatedServer.Q.b(IRegistry.aP).d().stream().map(minecraftKey -> minecraftKey.toString()).collect(Collectors.toList());
     }
+
     @Override
-    public List<String> getBiomesNameByFabricTag(String groupName){
-        switch (groupName){
+    public List<String> getBiomesNameByFabricTag(String groupName) {
+        switch (groupName) {
             case "is_badlands":
                 return Arrays.asList("minecraft:badlands", "minecraft:eroded_badlands", "minecraft:wooded_badlands");
             case "is_beach":
@@ -55,7 +54,7 @@ public class NMS_1_18_R2 implements NMSInterface {
             case "is_ocean":
                 return Arrays.asList("minecraft:deep_frozen_ocean", "minecraft:deep_cold_ocean", "minecraft:deep_ocean", "minecraft:deep_lukewarm_ocean", "minecraft:frozen_ocean", "minecraft:ocean", "minecraft:cold_ocean", "minecraft:lukewarm_ocean", "minecraft:warm_ocean");
             default:
-                return null;   
+                return null;
         }
     }
 

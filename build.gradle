@@ -4,7 +4,7 @@ plugins {
 }
 
 group = 'com.github.ipecter.rtu'
-version = '1.1.0'
+version = '1.2.0'
 
 repositories {
     mavenCentral()
@@ -24,10 +24,10 @@ dependencies {
     //implementation project(':NMS_1_17_R1')
     implementation project(':NMS_1_18_R1')
     implementation project(':NMS_1_18_R2')
-    //implementation project(':NMS_1_19_R1')
+    implementation project(':NMS_1_19_R1')
 }
 
-def targetJavaVersion = 16
+def targetJavaVersion = 17
 java {
     def javaVersion = JavaVersion.toVersion(targetJavaVersion)
     sourceCompatibility = javaVersion

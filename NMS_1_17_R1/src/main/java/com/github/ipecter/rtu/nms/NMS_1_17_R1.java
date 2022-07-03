@@ -28,10 +28,16 @@ public class NMS_1_17_R1 implements NMSInterface {
 
     @Override
     public List<String> getBiomesName() {
-        return dedicatedServer.getCustomRegistry().b(IRegistry.aO).?.stream().map(minecraftKey -> minecraftKey.getKey()).collect(Collectors.toList());
+        return getBiomeKey().stream().map(minecraftKey -> minecraftKey.getKey()).collect(Collectors.toList());
     }
+
     @Override
-    public List<String> getBiomesByFabricTag(String groupName){
+    public List<String> getBiomesNameByFabricTag(String tag) {
+        return dedicatedServer.getCustomRegistry().b(IRegistry.aO).keySet().stream().map(minecraftKey -> minecraftKey.toString()).collect(Collectors.toList());
+    }
+
+    @Override
+    public List<String> getBiomesNameByFabricTag(String groupName) {
         switch (groupName){
             case "is_badlands":
                 return Arrays.asList("minecraft:badlands", "minecraft:eroded_badlands", "minecraft:wooded_badlands");
@@ -60,11 +66,16 @@ public class NMS_1_17_R1 implements NMSInterface {
         }
     }
 
+    private Collection<MinecraftKey> getBiomeKey() {
+        IRegistryWritable<BiomeBase> registry = dedicatedServer.getCustomRegistry().b(IRegistry.aO);
+        return registry.keySet();
+    }
+
     private BiomeBase getBiomeBase(Location location) {
-        BlockPosition pos = new BlockPosition(location.getBlockX(), location.getBlockY(), location.getBlockZ());
+        BlockPosition pos = new BlockPosition(location.getBlockX(), 0, location.getBlockZ());
         Chunk nmsChunk = ((CraftWorld) location.getWorld()).getHandle().getChunkAtWorldCoords(pos);
         if (nmsChunk != null) {
-            return nmsChunk.getBiomeIndex().getBiome(pos.getX() >> 2, pos.getY() >> 2, pos.getZ() >> 2);
+            return nmsChunk.getBiomeIndex().getBiome(pos.getX() - nmsChunk., pos.getY(), pos.getZ());
         }
         return null;
     }

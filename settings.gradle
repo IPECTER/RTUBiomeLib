@@ -1,2 +1,2 @@
 rootProject.name = 'RTUBiomeLib'
-include 'NMS_1_18_R1', 'NMS_1_18_R2', 'NMS'
+include 'NMS_1_18_R1', 'NMS_1_18_R2', 'NMS_1_19_R1', 'NMS'
