@@ -1,5 +1,5 @@
-# RTUBiomeLib 1.0.1
-[ Minecraft Plugin ] 1.18 ~ 1.18.2 Biome Library, Get Custom Biome!
+# RTUBiomeLib 1.2.0
+[ Minecraft Plugin ] 1.18.0 ~ 1.19.0 Biome Library, Get Custom Biome!
 (Can Only Get String Now)
 
 **RTUBiomeLib.getInterface()**
