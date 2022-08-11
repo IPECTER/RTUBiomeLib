@@ -24,8 +24,6 @@ public final class RTUBiomeLib extends JavaPlugin implements CommandExecutor {
             nmsInterface = new NMS_1_19_R1();
         } else if (Bukkit.getVersion().contains("1.18.2")) {
             nmsInterface = new NMS_1_18_R2();
-        } else if (Bukkit.getVersion().contains("1.18.1")) {
-            nmsInterface = new NMS_1_18_R1();
         } else if (Bukkit.getVersion().contains("1.18")) {
             nmsInterface = new NMS_1_18_R1();
         } else {
