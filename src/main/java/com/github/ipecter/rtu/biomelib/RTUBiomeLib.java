@@ -17,16 +17,12 @@ public final class RTUBiomeLib extends JavaPlugin implements CommandExecutor {
         return nmsInterface;
     }
 
+    private final static String VERSION = Bukkit.getServer().getClass().getPackage().getName().replace("org.bukkit.craftbukkit", "").replace(".", "");
+
     @Override
     public void onEnable() {
 
-        if (Bukkit.getVersion().contains("1.19")) {
-            nmsInterface = new NMS_1_19_R1();
-        } else if (Bukkit.getVersion().contains("1.18.2")) {
-            nmsInterface = new NMS_1_18_R2();
-        } else if (Bukkit.getVersion().contains("1.18")) {
-            nmsInterface = new NMS_1_18_R1();
-        } else {
+        if (!NMSVersion.loadNMS(VERSION)) {
             Bukkit.getLogger().warning("[ RTUBiomeLib ] Server version is unsupported version, Disabling RTUBiomeLib...");
             this.getServer().getPluginManager().disablePlugin(this);
         }
@@ -39,8 +35,31 @@ public final class RTUBiomeLib extends JavaPlugin implements CommandExecutor {
     }
 
     public boolean onCommand(CommandSender sender, org.bukkit.command.Command command, String s, String[] args) {
-
         sender.sendMessage(getInterface().getBiomeName(((Player) sender).getLocation()));
         return true;
+    }
+
+    private void loadNMS() {
+
+    }
+
+    private enum NMSVersion {
+
+        v1_18_R1(new NMS_1_18_R1()),
+        v1_18_R2(new NMS_1_18_R2()),
+        v1_19_R1(new NMS_1_19_R1());
+
+        NMSInterface nmsInterface;
+
+        NMSVersion(NMSInterface nmsInterface) {
+            this.nmsInterface = nmsInterface;
+        }
+
+        public static boolean loadNMS(String version) {
+            NMSVersion nmsVersion = NMSVersion.valueOf(version);
+            if (nmsVersion == null) return false;
+            RTUBiomeLib.nmsInterface = nmsVersion.nmsInterface;
+            return true;
+        }
     }
 }
