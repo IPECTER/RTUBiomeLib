@@ -24,13 +24,13 @@ public class NMS_1_18_R2 implements NMSInterface {
     }
 
     @Override
-    public List<String> getBiomesName() {
+    public List<String> getBiomesAsString() {
         return dedicatedServer.Q.b(IRegistry.aP).d().stream().map(minecraftKey -> minecraftKey.toString()).collect(Collectors.toList());
     }
 
     @Override
-    public List<String> getBiomesNameByFabricTag(String groupName) {
-        switch (groupName) {
+    public List<String> getBiomesAsStringByFabricTag(String fabricTag) {
+        switch (fabricTag) {
             case "is_badlands":
                 return Arrays.asList("minecraft:badlands", "minecraft:eroded_badlands", "minecraft:wooded_badlands");
             case "is_beach":
