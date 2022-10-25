@@ -4,7 +4,6 @@ import com.github.ipecter.rtu.nms.NMSInterface;
 import com.github.ipecter.rtu.nms.NMS_1_18_R1;
 import com.github.ipecter.rtu.nms.NMS_1_18_R2;
 import com.github.ipecter.rtu.nms.NMS_1_19_R1;
-import com.github.ipecter.rtu.pluginlib.RTUPluginLib;
 import com.iridium.iridiumcolorapi.IridiumColorAPI;
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandExecutor;
@@ -26,14 +25,14 @@ public final class RTUBiomeLib extends JavaPlugin implements CommandExecutor {
 
     @Override
     public void onEnable() {
-        Bukkit.getLogger().info(RTUPluginLib.getTextManager().formatted(prefix + "&aEnable&f!"));
-        Bukkit.getLogger().info(RTUPluginLib.getTextManager().formatted(prefix + "&fNMS: " + VERSION));
+        Bukkit.getLogger().info(ChatColor.translateAlternateColorCodes('&', prefix + "&aEnable&f!"));
+        Bukkit.getLogger().info(ChatColor.translateAlternateColorCodes('&', prefix + "&fNMS: " + VERSION));
         loadNMS(VERSION);
     }
 
     @Override
     public void onDisable() {
-        Bukkit.getLogger().info(RTUPluginLib.getTextManager().formatted(prefix + "&cDisable&f!"));
+        Bukkit.getLogger().info(ChatColor.translateAlternateColorCodes('&', prefix + "&cDisable&f!"));
     }
 
     public boolean onCommand(CommandSender sender, org.bukkit.command.Command command, String s, String[] args) {
