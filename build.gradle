@@ -1,7 +1,5 @@
 plugins {
     id 'java'
-    id 'maven-publish'
-    id 'com.github.johnrengelman.shadow' version '7.1.2'
 }
 
 ConfigurableFileTree libsImplementation = fileTree(dir: 'libs-implementation', include: ['*.jar'])
@@ -17,8 +15,27 @@ repositories {
 
 }
 
+configurations {
+    extraLibs
+}
+
+jar {
+    from {
+        configurations.extraLibs.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}
+
 dependencies {
     compileOnly 'org.spigotmc:spigot-api:1.19.2-R0.1-SNAPSHOT'
+
+    extraLibs project(':NMS')
+    //extraLibs project(':NMS_1_17_R1')
+    extraLibs project(':NMS_1_18_R1')
+    extraLibs project(':NMS_1_18_R2')
+    extraLibs project(':NMS_1_19_R1')
+    //extraLibs project(':NMS_1_20_R1')
+    extraLibs libsImplementation
+
     implementation project(':NMS')
     //implementation project(':NMS_1_17_R1')
     implementation project(':NMS_1_18_R1')
@@ -27,7 +44,6 @@ dependencies {
     //implementation project(':NMS_1_20_R1')
     implementation libsImplementation
 }
-
 def targetJavaVersion = 17
 java {
     def javaVersion = JavaVersion.toVersion(targetJavaVersion)
@@ -50,17 +66,5 @@ processResources {
     filteringCharset 'UTF-8'
     filesMatching('plugin.yml') {
         expand props
-    }
-}
-shadowJar {
-    archiveBaseName.set('RTUBiomeLib')
-}
-tasks.replace("build").configure {
-    actions.clear()
-    doLast {
-        dependsOn pj.compileJava
-        dependsOn pj.processResources
-        dependsOn pj.classes
-        dependsOn pj.shadowJar
     }
 }
