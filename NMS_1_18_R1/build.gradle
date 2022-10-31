@@ -7,11 +7,14 @@ version = '1.0'
 
 repositories {
     mavenCentral()
-    mavenLocal()
-    maven{ url = "https://repo.codemc.io/repository/nms/" }
+    maven {
+        name = 'spigotmc-repo'
+        url = 'https://hub.spigotmc.org/nexus/content/repositories/snapshots/'
+    }
 }
 
 dependencies {
-    compileOnly 'org.spigotmc:spigot:1.18-R0.1-SNAPSHOT'
+    compileOnly 'org.spigotmc:spigot-api:1.18-R0.1-SNAPSHOT'
+    compileOnly files(projectDir.toString() + '/nms/spigot.jar')
     implementation project(':NMS')
 }
