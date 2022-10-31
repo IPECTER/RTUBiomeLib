@@ -17,16 +17,47 @@
   Return list of all the biomes name in server (including custom biome, like "new:where")
 
 - List<String> **getBiomesNameByFabricTag(String)**
-  
-  getBiomesNameByFabric("is_nether")
-  
-  Get All Server Biome as String using Fabric-BiomeTag
-  Available Tags: is_badlands, is_beach, is_deep_ocean, is_end, is_forest, is_hill, is_jungle, is_jungle, is_mountain, is_nether, is_ocean, is_overworld, is_savanna, is_taiga, is_river
-  
-  ex) {"minecraft:nether_wastes", "minecraft:basalt_deltas", "minecraft:soul_sand_valley", "minecraft:crimson_forest", "minecraft:warped_forest"}
 
-# Gradle&Maven
-maven repo soon maybe...!
+  getBiomesNameByFabric("is_nether")
+
+  Get All Server Biome as String using Fabric-BiomeTag Available Tags: is_badlands, is_beach, is_deep_ocean, is_end,
+  is_forest, is_hill, is_jungle, is_jungle, is_mountain, is_nether, is_ocean, is_overworld, is_savanna, is_taiga,
+  is_river
+
+  ex) {"minecraft:nether_wastes", "minecraft:basalt_deltas", "minecraft:soul_sand_valley", "minecraft:crimson_forest", "
+  minecraft:warped_forest"}
+
+# JitPack
+
+Gradle
+
+```
+repositories {
+  maven { url 'https://jitpack.io' }
+}
+
+dependencies {
+  implementation 'com.github.IPECTER.RTUBiomeLib:RTUBiomeLib:latest'
+}
+```
+
+Maven
+
+```access transformers
+<repositories>
+    <repository>
+        <id>jitpack.io</id>
+        <url>https://jitpack.io</url>
+    </repository>
+</repositories>
+
+<dependency>
+    <groupId>com.github.IPECTER.RTUBiomeLib</groupId>
+    <artifactId>RTUBiomeLib</artifactId>
+    <version>latest</version>
+</dependency>
+```
 
 ## Where is ~ 1.17.X and 1.20?
+
 WIP... Wait~
