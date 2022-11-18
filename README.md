@@ -59,5 +59,4 @@ Maven
 ```
 
 ## Where is ~ 1.17.X and 1.20?
-
-WIP... Wait~
+WIP...
