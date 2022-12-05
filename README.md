@@ -1,4 +1,4 @@
-# RTUBiomeLib 1.3.2
+# [ RTUBiomeLib 1.3.2 ]
 [ Minecraft Plugin ] 1.18.0 ~ 1.19.2 Biome Library, Get Custom Biome!
 
 **RTUBiomeLib.getInterface()**
