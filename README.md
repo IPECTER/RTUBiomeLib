@@ -37,7 +37,7 @@ repositories {
 }
 
 dependencies {
-  implementation 'com.github.IPECTER.RTUBiomeLib:RTUBiomeLib:1.3.2'
+  implementation 'com.github.IPECTER.RTUBiomeLib:RTUBiomeLib:1.3.3'
 }
 ```
 
