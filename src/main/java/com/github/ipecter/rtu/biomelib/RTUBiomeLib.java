@@ -1,9 +1,6 @@
 package com.github.ipecter.rtu.biomelib;
 
-import com.github.ipecter.rtu.nms.NMSInterface;
-import com.github.ipecter.rtu.nms.NMS_1_18_R1;
-import com.github.ipecter.rtu.nms.NMS_1_18_R2;
-import com.github.ipecter.rtu.nms.NMS_1_19_R1;
+import com.github.ipecter.rtu.nms.*;
 import com.iridium.iridiumcolorapi.IridiumColorAPI;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -53,6 +50,10 @@ public final class RTUBiomeLib extends JavaPlugin implements CommandExecutor {
             }
             case "v1_19_R1": {
                 nmsInterface = new NMS_1_19_R1();
+                break;
+            }
+            case "v1_19_R2": {
+                nmsInterface = new NMS_1_19_R2();
                 break;
             }
             default: {

@@ -2,22 +2,23 @@ package com.github.ipecter.rtu.nms;
 
 import net.minecraft.core.BlockPosition;
 import net.minecraft.core.IRegistry;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.server.dedicated.DedicatedServer;
 import net.minecraft.world.level.biome.BiomeBase;
 import net.minecraft.world.level.chunk.Chunk;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
-import org.bukkit.craftbukkit.v1_18_R2.CraftServer;
-import org.bukkit.craftbukkit.v1_18_R2.CraftWorld;
+import org.bukkit.craftbukkit.v1_19_R2.CraftServer;
+import org.bukkit.craftbukkit.v1_19_R2.CraftWorld;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class NMS_1_18_R2 implements NMSInterface {
+public class NMS_1_19_R2 implements NMSInterface{
 
     private DedicatedServer dedicatedServer = ((CraftServer) Bukkit.getServer()).getServer();
-    private IRegistry<BiomeBase> registry = dedicatedServer.Q.b(IRegistry.aP);
+    private IRegistry<BiomeBase> registry = dedicatedServer.aW().d(Registries.al);
 
     @Override
     public String getBiomeName(Location location) {
@@ -26,7 +27,7 @@ public class NMS_1_18_R2 implements NMSInterface {
 
     @Override
     public List<String> getBiomesAsString() {
-        return registry.d().stream().map(minecraftKey -> minecraftKey.toString()).collect(Collectors.toList());
+        return registry.e().stream().map(minecraftKey -> minecraftKey.toString()).collect(Collectors.toList());
     }
 
     @Override
@@ -38,6 +39,8 @@ public class NMS_1_18_R2 implements NMSInterface {
                 return Arrays.asList("minecraft:beach", "minecraft:snowy_beach");
             case "is_deep_ocean":
                 return Arrays.asList("minecraft:deep_frozen_ocean", "minecraft:deep_cold_ocean", "minecraft:deep_ocean", "minecraft:deep_lukewarm_ocean");
+            case "is_end":
+                return Arrays.asList("minecraft:the_end", "minecraft:end_highlands", "minecraft:end_midlands", "minecraft:small_end_islands", "minecraft:end_barrens");
             case "is_forest":
                 return Arrays.asList("minecraft:forest", "minecraft:flower_forest", "minecraft:birch_forest", "minecraft:old_growth_birch_forest", "minecraft:dark_forest", "minecraft:grove");
             case "is_hill":
@@ -47,13 +50,17 @@ public class NMS_1_18_R2 implements NMSInterface {
             case "is_mountain":
                 return Arrays.asList("minecraft:meadow", "minecraft:frozen_peaks", "minecraft:jagged_peaks", "minecraft:stony_peaks", "minecraft:snowy_slopes");
             case "is_nether":
-                return Arrays.asList("minecraft:nether_wastes", "minecraft:basalt_deltas", "minecraft:soul_sand_valley", "minecraft:crimson_forest", "minecraft:warped_forest");
-            case "is_river":
-                return Arrays.asList("minecraft:river", "minecraft:frozen_river");
-            case "is_taiga":
-                return Arrays.asList("minecraft:taiga", "minecraft:snowy_taiga", "minecraft:old_growth_pine_taiga", "minecraft:old_growth_spruce_taiga");
+                return Arrays.asList("minecraft:nether_wastes", "minecraft:soul_sand_valley", "minecraft:crimson_forest", "minecraft:warped_forest", "minecraft:basalt_deltas");
             case "is_ocean":
                 return Arrays.asList("minecraft:deep_frozen_ocean", "minecraft:deep_cold_ocean", "minecraft:deep_ocean", "minecraft:deep_lukewarm_ocean", "minecraft:frozen_ocean", "minecraft:ocean", "minecraft:cold_ocean", "minecraft:lukewarm_ocean", "minecraft:warm_ocean");
+            case "is_overworld":
+                return Arrays.asList("minecraft:mushroom_fields", "minecraft:deep_frozen_ocean", "minecraft:frozen_ocean", "minecraft:deep_cold_ocean", "minecraft:cold_ocean", "minecraft:deep_ocean", "minecraft:ocean", "minecraft:deep_lukewarm_ocean", "minecraft:lukewarm_ocean", "minecraft:warm_ocean", "minecraft:stony_shore", "minecraft:swamp", "minecraft:mangrove_swamp", "minecraft:snowy_slopes", "minecraft:snowy_plains", "minecraft:snowy_beach", "minecraft:windswept_gravelly_hills", "minecraft:grove", "minecraft:windswept_hills", "minecraft:snowy_taiga", "minecraft:windswept_forest", "minecraft:taiga", "minecraft:plains", "minecraft:meadow", "minecraft:beach", "minecraft:forest", "minecraft:old_growth_spruce_taiga", "minecraft:flower_forest", "minecraft:birch_forest", "minecraft:dark_forest", "minecraft:savanna_plateau", "minecraft:savanna", "minecraft:jungle", "minecraft:badlands", "minecraft:desert", "minecraft:wooded_badlands", "minecraft:jagged_peaks", "minecraft:stony_peaks", "minecraft:frozen_river", "minecraft:river", "minecraft:ice_spikes", "minecraft:old_growth_pine_taiga", "minecraft:sunflower_plains", "minecraft:old_growth_birch_forest", "minecraft:sparse_jungle", "minecraft:bamboo_jungle", "minecraft:eroded_badlands", "minecraft:windswept_savanna", "minecraft:frozen_peaks", "minecraft:dripstone_caves", "minecraft:lush_caves", "minecraft:deep_dark");
+            case "is_savanna":
+                return Arrays.asList("minecraft:savanna", "minecraft:savanna_plateau", "minecraft:windswept_savanna");
+            case "is_taiga":
+                return Arrays.asList("minecraft:taiga", "minecraft:snowy_taiga", "minecraft:old_growth_pine_taiga", "minecraft:old_growth_spruce_taiga");
+            case "is_river":
+                return Arrays.asList("minecraft:river", "minecraft:frozen_river");
             default:
                 return null;
         }

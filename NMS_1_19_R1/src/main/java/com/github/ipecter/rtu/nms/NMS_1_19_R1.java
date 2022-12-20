@@ -15,17 +15,18 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class NMS_1_19_R1 implements NMSInterface{
-    DedicatedServer dedicatedServer = ((CraftServer) Bukkit.getServer()).getServer();
+
+    private DedicatedServer dedicatedServer = ((CraftServer) Bukkit.getServer()).getServer();
+    private IRegistry<BiomeBase> registry = dedicatedServer.N.b(IRegistry.aR);
 
     @Override
     public String getBiomeName(Location location) {
-        IRegistry<BiomeBase> registry = dedicatedServer.N.b(IRegistry.aR);
         return registry.b(getBiomeBase(location)).toString();
     }
 
     @Override
     public List<String> getBiomesAsString() {
-        return dedicatedServer.N.b(IRegistry.aR).d().stream().map(minecraftKey -> minecraftKey.toString()).collect(Collectors.toList());
+        return registry.d().stream().map(minecraftKey -> minecraftKey.toString()).collect(Collectors.toList());
     }
 
     @Override
