@@ -2,9 +2,6 @@ plugins {
     id 'java'
 }
 
-group = 'com.github.ipecter.rtu'
-version = '1.0'
-
 repositories {
     mavenCentral()
     mavenLocal()
