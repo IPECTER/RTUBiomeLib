@@ -16,7 +16,7 @@ repositories {
 
 dependencies {
     compileOnly "com.mojang:authlib:3.5.41"
-    compileOnly "com.mojang:brigadier:1.0.18"
+    compileOnly "com.mojang:brigadier:1.0.500"
     compileOnly "com.mojang:datafixerupper:5.0.28"
     compileOnly "com.mojang:javabridge:1.2.24"
     compileOnly "com.mojang:logging:1.0.0"
