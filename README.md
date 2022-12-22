@@ -54,9 +54,6 @@ Maven
 <dependency>
     <groupId>com.github.IPECTER.RTUBiomeLib</groupId>
     <artifactId>RTUBiomeLib</artifactId>
-    <version>1.3.2</version>
+    <version>1.3.3</version>
 </dependency>
 ```
-
-## Where is ~ 1.17.X and 1.20?
-WIP...
