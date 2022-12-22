@@ -1,4 +1,4 @@
-# [ RTUBiomeLib 1.3.3 ]
+# [ RTUBiomeLib 1.3.4 ]
 [ Minecraft Plugin ] 1.18.0 ~ 1.19.3 Biome Library, Get Custom Biome!
 
 **RTUBiomeLib.getInterface()**
@@ -37,7 +37,7 @@ repositories {
 }
 
 dependencies {
-  implementation 'com.github.IPECTER.RTUBiomeLib:RTUBiomeLib:1.3.3'
+  implementation 'com.github.IPECTER.RTUBiomeLib:RTUBiomeLib:1.3.4'
 }
 ```
 
@@ -54,6 +54,6 @@ Maven
 <dependency>
     <groupId>com.github.IPECTER.RTUBiomeLib</groupId>
     <artifactId>RTUBiomeLib</artifactId>
-    <version>1.3.3</version>
+    <version>1.3.4</version>
 </dependency>
 ```
