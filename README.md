@@ -14,6 +14,7 @@
 - List<String> **getBiomesName()**
   
   Get All Server Biome as String
+  
   Return list of all the biomes name in server (including custom biome, like "new:where")
 
 - List<String> **getBiomeTag(String)**
@@ -21,9 +22,14 @@
   getBiomeTag("is_nether")
 
   Bukkit API can't get Biomes using Biome Tag! But RTUBiomeLib can get!
-  Get All Server Biome as String using Biome Tag Available Tags: is_badlands, is_beach, is_deep_ocean, is_end,
+  
+  Get All Server Biome as String using Biome Tag 
+  
+  Available Tags: is_badlands, is_beach, is_deep_ocean, is_end,
+  
   is_forest, is_hill, is_jungle, is_jungle, is_mountain, is_nether, is_ocean, is_overworld, is_savanna, is_taiga,
   is_river
+  
   Support Versions: 1.18.1 <
 
   ex) {"minecraft:nether_wastes", "minecraft:basalt_deltas", "minecraft:soul_sand_valley", "minecraft:crimson_forest", "
