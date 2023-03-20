@@ -1,5 +1,5 @@
-# [ RTUBiomeLib 1.3.4 ]
-[ Minecraft Plugin ] 1.18.0 ~ 1.19.3 Biome Library, Get Custom Biome!
+# [ RTUBiomeLib 1.4.0 ]
+[ Minecraft Plugin ] 1.17.0 ~ 1.19.4 Biome Library, Get Custom Biome!
 
 **RTUBiomeLib.getInterface()**
 
@@ -16,13 +16,15 @@
   Get All Server Biome as String
   Return list of all the biomes name in server (including custom biome, like "new:where")
 
-- List<String> **getBiomesNameByFabricTag(String)**
+- List<String> **getBiomeTag(String)**
 
-  getBiomesNameByFabric("is_nether")
+  getBiomeTag("is_nether")
 
-  Get All Server Biome as String using Fabric-BiomeTag Available Tags: is_badlands, is_beach, is_deep_ocean, is_end,
+  Bukkit API can't get Biomes using Biome Tag! But RTUBiomeLib can get!
+  Get All Server Biome as String using Biome Tag Available Tags: is_badlands, is_beach, is_deep_ocean, is_end,
   is_forest, is_hill, is_jungle, is_jungle, is_mountain, is_nether, is_ocean, is_overworld, is_savanna, is_taiga,
   is_river
+  Support Versions: 1.18.1 <
 
   ex) {"minecraft:nether_wastes", "minecraft:basalt_deltas", "minecraft:soul_sand_valley", "minecraft:crimson_forest", "
   minecraft:warped_forest"}
@@ -37,7 +39,7 @@ repositories {
 }
 
 dependencies {
-  implementation 'com.github.IPECTER.RTUBiomeLib:RTUBiomeLib:1.3.4'
+  implementation 'com.github.IPECTER.RTUBiomeLib:RTUBiomeLib:1.4.0'
 }
 ```
 
@@ -54,6 +56,6 @@ Maven
 <dependency>
     <groupId>com.github.IPECTER.RTUBiomeLib</groupId>
     <artifactId>RTUBiomeLib</artifactId>
-    <version>1.3.4</version>
+    <version>1.4.0</version>
 </dependency>
 ```
