@@ -25,9 +25,7 @@
   
   Get All Server Biome as String using Biome Tag 
   
-  Available Tags: is_badlands, is_beach, is_deep_ocean, is_end,
-  
-  is_forest, is_hill, is_jungle, is_jungle, is_mountain, is_nether, is_ocean, is_overworld, is_savanna, is_taiga,
+  Available Tags: is_badlands, is_beach, is_deep_ocean, is_end, is_forest, is_hill, is_jungle, is_jungle, is_mountain, is_nether, is_ocean, is_overworld, is_savanna, is_taiga,
   is_river
   
   Support Versions: 1.18.1 <
