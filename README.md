@@ -19,8 +19,6 @@
 
 - List<String> **getBiomeTag(String)**
 
-  getBiomeTag("is_nether")
-
   Bukkit API can't get Biomes using Biome Tag! But RTUBiomeLib can get!
   
   Get All Server Biome as String using Biome Tag 
@@ -30,8 +28,8 @@
   
   Support Versions: 1.18.1 <
 
-  ex) {"minecraft:nether_wastes", "minecraft:basalt_deltas", "minecraft:soul_sand_valley", "minecraft:crimson_forest", "
-  minecraft:warped_forest"}
+  ex) getBiomeTag("is_nether") => ["minecraft:nether_wastes", "minecraft:basalt_deltas", "minecraft:soul_sand_valley", "minecraft:crimson_forest", "
+  minecraft:warped_forest"]
 
 ## JitPack
 
