@@ -20,11 +20,11 @@ public interface NMSInterface {
     List<String> getBiomesAsString();
 
     /***
-     * Get All Server Biome as String using Fabric-BiomeTag
+     * Get All Server Biome as String using BiomeTag ( Support Versions: 1.18.1 < )
      * Available Tags: is_badlands, is_beach, is_deep_ocean, is_end, is_forest, is_hill, is_jungle, is_jungle, is_mountain, is_nether, is_ocean, is_overworld, is_savanna, is_taiga, is_river
-     * @param fabricTag check available tags
+     * @param tag check available tags
      * @return
      */
-    List<String> getBiomesAsStringByFabricTag(String fabricTag);
+    List<String> getBiomeTag(String tag);
 
 }

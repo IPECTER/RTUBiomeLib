@@ -34,12 +34,17 @@ public final class RTUBiomeLib extends JavaPlugin implements CommandExecutor {
     }
 
     public boolean onCommand(CommandSender sender, org.bukkit.command.Command command, String s, String[] args) {
-        sender.sendMessage(getInterface().getBiomeName(((Player) sender).getLocation()));
+        sender.sendMessage("Here: " + getInterface().getBiomeName(((Player) sender).getLocation()));
+        sender.sendMessage("Biome Tag (is_overworld): " + getInterface().getBiomeTag("is_overworld"));
         return true;
     }
 
     private void loadNMS(String version) {
         switch (version) {
+            case "v1_17_R1": {
+                nmsInterface = new NMS_1_17_R1();
+                break;
+            }
             case "v1_18_R1": {
                 nmsInterface = new NMS_1_18_R1();
                 break;
@@ -54,6 +59,10 @@ public final class RTUBiomeLib extends JavaPlugin implements CommandExecutor {
             }
             case "v1_19_R2": {
                 nmsInterface = new NMS_1_19_R2();
+                break;
+            }
+            case "v1_19_R3": {
+                nmsInterface = new NMS_1_19_R3();
                 break;
             }
             default: {
