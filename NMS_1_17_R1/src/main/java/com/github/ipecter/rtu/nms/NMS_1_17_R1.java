@@ -7,7 +7,6 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.dedicated.DedicatedServer;
 import net.minecraft.server.level.WorldServer;
 import net.minecraft.world.level.biome.BiomeBase;
-import net.minecraft.world.level.chunk.Chunk;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.craftbukkit.v1_17_R1.CraftServer;
@@ -29,7 +28,7 @@ public class NMS_1_17_R1 implements NMSInterface {
 
     @Override
     public List<String> getBiomesAsString() {
-        return registry.d().stream().map(minecraftKey -> minecraftKey.toString()).collect(Collectors.toList());
+        return registry.d().stream().map(Object::toString).collect(Collectors.toList());
     }
 
     @Override

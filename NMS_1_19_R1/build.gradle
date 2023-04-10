@@ -1,26 +1,4 @@
-plugins {
-    id 'java'
-}
-
-repositories {
-    mavenCentral()
-    maven {
-        name = "minecraft-libraries"
-        url = "https://libraries.minecraft.net/"
-    }
-    maven {
-        name = "spigotmc-repo"
-        url = "https://hub.spigotmc.org/nexus/content/repositories/snapshots/"
-    }
-}
-
 dependencies {
-    compileOnly "com.mojang:authlib:3.5.41"
-    compileOnly "com.mojang:brigadier:1.0.500"
-    compileOnly "com.mojang:datafixerupper:5.0.28"
-    compileOnly "com.mojang:javabridge:1.2.24"
-    compileOnly "com.mojang:logging:1.0.0"
-    compileOnly "org.spigotmc:spigot-api:1.19.4-R0.1-SNAPSHOT"
-    compileOnly files(projectDir.toString() + '/nms/spigot.jar')
     implementation project(':NMS')
+    compileOnly "org.spigotmc:spigot:1.19.2-R0.1-SNAPSHOT"
 }

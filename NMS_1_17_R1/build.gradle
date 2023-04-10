@@ -1,17 +1,4 @@
-plugins {
-    id 'java'
-}
-
-repositories {
-    mavenCentral()
-    maven {
-        name = "spigotmc-repo"
-        url = "https://hub.spigotmc.org/nexus/content/repositories/snapshots/"
-    }
-}
-
 dependencies {
-    compileOnly "org.spigotmc:spigot-api:1.19.4-R0.1-SNAPSHOT"
-    compileOnly files(projectDir.toString() + '/nms/spigot.jar')
     implementation project(':NMS')
+    compileOnly "org.spigotmc:spigot:1.17.1-R0.1-SNAPSHOT"
 }

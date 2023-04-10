@@ -11,15 +11,13 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public final class RTUBiomeLib extends JavaPlugin implements CommandExecutor {
 
-    private String prefix = IridiumColorAPI.process("<GRADIENT:39cc1f>[ RTUBiomeLib ]</GRADIENT:a3a3a3> ");
-
+    private final static String VERSION = Bukkit.getServer().getClass().getPackage().getName().replace("org.bukkit.craftbukkit", "").replace(".", "");
     private static NMSInterface nmsInterface;
+    private final String prefix = IridiumColorAPI.process("<GRADIENT:39cc1f>[ RTUBiomeLib ]</GRADIENT:a3a3a3> ");
 
     public static NMSInterface getInterface() {
         return nmsInterface;
     }
-
-    private final static String VERSION = Bukkit.getServer().getClass().getPackage().getName().replace("org.bukkit.craftbukkit", "").replace(".", "");
 
     @Override
     public void onEnable() {

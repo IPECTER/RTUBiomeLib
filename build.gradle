@@ -5,13 +5,19 @@ plugins {
 ConfigurableFileTree libsImplementation = fileTree(dir: 'libs-implementation', include: ['*.jar'])
 
 group = 'com.github.ipecter.rtu'
-version = '1.4.0'
+version = '1.4.1'
 
 repositories {
     mavenCentral()
     mavenLocal()
-    maven { url = "https://hub.spigotmc.org/nexus/content/repositories/snapshots/" }
-    maven { url = "https://repo.codemc.io/repository/nms/" }
+    maven {
+        name = "spigotmc-repo"
+        url = "https://hub.spigotmc.org/nexus/content/repositories/snapshots/"
+    }
+    maven {
+        name = "nms-repo"
+        url = "https://repo.codemc.io/repository/nms-local/"
+    }
 
 }
 
@@ -50,6 +56,7 @@ dependencies {
 }
 
 subprojects {
+
     apply {
         plugin("java")
     }
@@ -70,6 +77,14 @@ subprojects {
             name = "spigotmc-repo"
             url = "https://hub.spigotmc.org/nexus/content/repositories/snapshots/"
         }
+        maven {
+            name = "nms-repo"
+            url = "https://repo.codemc.io/repository/nms-local/"
+        }
+    }
+
+    dependencies {
+        compileOnly "org.spigotmc:spigot-api:1.19.4-R0.1-SNAPSHOT"
     }
 }
 

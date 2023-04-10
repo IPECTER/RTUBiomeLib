@@ -13,11 +13,10 @@ import org.bukkit.Location;
 import org.bukkit.craftbukkit.v1_19_R1.CraftServer;
 import org.bukkit.craftbukkit.v1_19_R1.CraftWorld;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class NMS_1_19_R1 implements NMSInterface{
+public class NMS_1_19_R1 implements NMSInterface {
 
     private final DedicatedServer dedicatedServer = ((CraftServer) Bukkit.getServer()).getServer();
     private final ResourceKey<IRegistry<BiomeBase>> resourceKey = IRegistry.aR;
@@ -30,7 +29,7 @@ public class NMS_1_19_R1 implements NMSInterface{
 
     @Override
     public List<String> getBiomesAsString() {
-        return registry.d().stream().map(minecraftKey -> minecraftKey.toString()).collect(Collectors.toList());
+        return registry.d().stream().map(MinecraftKey::toString).collect(Collectors.toList());
     }
 
     @Override
@@ -38,7 +37,7 @@ public class NMS_1_19_R1 implements NMSInterface{
         return registry.b(TagKey.a(resourceKey, new MinecraftKey(tag))).a().map(biomeBaseHolder -> getMinecraftKey(biomeBaseHolder.a()).toString()).collect(Collectors.toList());
     }
 
-    private MinecraftKey getMinecraftKey(BiomeBase biomeBase){
+    private MinecraftKey getMinecraftKey(BiomeBase biomeBase) {
         return registry.b(biomeBase);
     }
 

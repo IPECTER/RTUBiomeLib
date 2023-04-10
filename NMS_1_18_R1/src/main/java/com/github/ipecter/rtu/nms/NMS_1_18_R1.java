@@ -31,7 +31,7 @@ public class NMS_1_18_R1 implements NMSInterface {
 
     @Override
     public List<String> getBiomesAsString() {
-        return registry.d().stream().map(minecraftKey -> minecraftKey.toString()).collect(Collectors.toList());
+        return registry.d().stream().map(MinecraftKey::toString).collect(Collectors.toList());
     }
 
     @Override

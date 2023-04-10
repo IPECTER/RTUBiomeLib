@@ -6,7 +6,6 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.MinecraftKey;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.dedicated.DedicatedServer;
-import net.minecraft.tags.BiomeTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.biome.BiomeBase;
 import net.minecraft.world.level.chunk.Chunk;
@@ -31,7 +30,7 @@ public class NMS_1_19_R2 implements NMSInterface {
 
     @Override
     public List<String> getBiomesAsString() {
-        return registry.e().stream().map(minecraftKey -> minecraftKey.toString()).collect(Collectors.toList());
+        return registry.e().stream().map(MinecraftKey::toString).collect(Collectors.toList());
     }
 
     @Override
