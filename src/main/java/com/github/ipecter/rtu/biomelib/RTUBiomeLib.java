@@ -31,6 +31,7 @@ public final class RTUBiomeLib extends JavaPlugin implements CommandExecutor {
         Bukkit.getLogger().info(ChatColor.translateAlternateColorCodes('&', prefix + "&cDisable&f!"));
     }
 
+    @Override
     public boolean onCommand(CommandSender sender, org.bukkit.command.Command command, String s, String[] args) {
         sender.sendMessage("Here: " + getInterface().getBiomeName(((Player) sender).getLocation()));
         return true;
@@ -38,34 +39,27 @@ public final class RTUBiomeLib extends JavaPlugin implements CommandExecutor {
 
     private void loadNMS() {
         switch (RTUBiomeLib.VERSION) {
-            case "v1_17_R1": {
+            case "v1_17_R1" -> {
                 nmsInterface = new NMS_1_17_R1();
-                break;
             }
-            case "v1_18_R1": {
+            case "v1_18_R1" -> {
                 nmsInterface = new NMS_1_18_R1();
-                break;
             }
-            case "v1_18_R2": {
+            case "v1_18_R2" -> {
                 nmsInterface = new NMS_1_18_R2();
-                break;
             }
-            case "v1_19_R1": {
+            case "v1_19_R1" -> {
                 nmsInterface = new NMS_1_19_R1();
-                break;
             }
-            case "v1_19_R2": {
+            case "v1_19_R2" -> {
                 nmsInterface = new NMS_1_19_R2();
-                break;
             }
-            case "v1_19_R3": {
+            case "v1_19_R3" -> {
                 nmsInterface = new NMS_1_19_R3();
-                break;
             }
-            default: {
+            default -> {
                 Bukkit.getLogger().warning("[ RTUBiomeLib ] Server version is unsupported version, Disabling RTUBiomeLib...");
                 this.getServer().getPluginManager().disablePlugin(this);
-                break;
             }
         }
     }

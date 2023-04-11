@@ -13,7 +13,6 @@ import org.bukkit.Location;
 import org.bukkit.craftbukkit.v1_18_R2.CraftServer;
 import org.bukkit.craftbukkit.v1_18_R2.CraftWorld;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 

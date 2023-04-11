@@ -5,8 +5,6 @@ import net.minecraft.core.IRegistry;
 import net.minecraft.resources.MinecraftKey;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.dedicated.DedicatedServer;
-import net.minecraft.tags.TagStatic;
-import net.minecraft.tags.Tags;
 import net.minecraft.world.level.biome.BiomeBase;
 import net.minecraft.world.level.chunk.Chunk;
 import org.bukkit.Bukkit;
@@ -14,7 +12,6 @@ import org.bukkit.Location;
 import org.bukkit.craftbukkit.v1_18_R1.CraftServer;
 import org.bukkit.craftbukkit.v1_18_R1.CraftWorld;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
