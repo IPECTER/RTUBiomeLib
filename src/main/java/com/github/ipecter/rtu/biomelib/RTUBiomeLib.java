@@ -23,7 +23,7 @@ public final class RTUBiomeLib extends JavaPlugin implements CommandExecutor {
     public void onEnable() {
         Bukkit.getLogger().info(ChatColor.translateAlternateColorCodes('&', prefix + "&aEnable&f!"));
         Bukkit.getLogger().info(ChatColor.translateAlternateColorCodes('&', prefix + "&fNMS: " + VERSION));
-        loadNMS(VERSION);
+        loadNMS();
     }
 
     @Override
@@ -33,12 +33,11 @@ public final class RTUBiomeLib extends JavaPlugin implements CommandExecutor {
 
     public boolean onCommand(CommandSender sender, org.bukkit.command.Command command, String s, String[] args) {
         sender.sendMessage("Here: " + getInterface().getBiomeName(((Player) sender).getLocation()));
-        sender.sendMessage("Biome Tag (is_overworld): " + getInterface().getBiomeTag("is_overworld"));
         return true;
     }
 
-    private void loadNMS(String version) {
-        switch (version) {
+    private void loadNMS() {
+        switch (RTUBiomeLib.VERSION) {
             case "v1_17_R1": {
                 nmsInterface = new NMS_1_17_R1();
                 break;
