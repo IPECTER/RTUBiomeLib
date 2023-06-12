@@ -1,12 +1,11 @@
 package com.github.ipecter.rtu.nms;
 
-import net.minecraft.core.BlockPosition;
-import net.minecraft.core.IRegistry;
-import net.minecraft.resources.MinecraftKey;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.dedicated.DedicatedServer;
-import net.minecraft.world.level.biome.BiomeBase;
-import net.minecraft.world.level.chunk.Chunk;
+import net.minecraft.world.level.biome.Biome;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.craftbukkit.v1_18_R1.CraftServer;
@@ -18,17 +17,17 @@ import java.util.stream.Collectors;
 public class NMS_1_18_R1 implements NMSInterface {
 
     private final DedicatedServer dedicatedServer = ((CraftServer) Bukkit.getServer()).getServer();
-    private final ResourceKey<IRegistry<BiomeBase>> resourceKey = IRegistry.aR;
-    private final IRegistry<BiomeBase> registry = dedicatedServer.aV().d(resourceKey);
+    private final ResourceKey<Registry<Biome>> resourceKey = Registry.BIOME_REGISTRY;
+    private final Registry<Biome> registry = dedicatedServer.registryAccess().registryOrThrow(resourceKey);
 
     @Override
     public String getBiomeName(Location location) {
-        return getMinecraftKey(getBiomeBase(location)).toString();
+        return getResourceLocation(getNMSBiome(location)).toString();
     }
 
     @Override
     public List<String> getBiomesAsString() {
-        return registry.d().stream().map(MinecraftKey::toString).collect(Collectors.toList());
+        return registry.keySet().stream().map(ResourceLocation::toString).collect(Collectors.toList());
     }
 
     @Override
@@ -36,16 +35,15 @@ public class NMS_1_18_R1 implements NMSInterface {
         return List.of();
     }
 
-    private MinecraftKey getMinecraftKey(BiomeBase biomeBase) {
-        return registry.b(biomeBase);
+    private ResourceLocation getResourceLocation(Biome biome) {
+        return registry.getKey(biome);
     }
 
-    private BiomeBase getBiomeBase(Location location) {
-        BlockPosition pos = new BlockPosition(location.getBlockX(), location.getBlockY(), location.getBlockZ());
-        Chunk nmsChunk = ((CraftWorld) location.getWorld()).getHandle().l(pos);
-        if (nmsChunk != null) {
-            return nmsChunk.getNoiseBiome(pos.u() >> 2, pos.v() >> 2, pos.w() >> 2);
-        }
+    private Biome getNMSBiome(Location location) {
+        BlockPos pos = new BlockPos(location.getBlockX(), location.getBlockY(), location.getBlockZ());
+        CraftWorld world = (CraftWorld) location.getWorld();
+        if (world != null)
+            return world.getHandle().getChunk(pos).getNoiseBiome(pos.getX() >> 2, pos.getY() >> 2, pos.getZ() >> 2);
         return null;
     }
 }

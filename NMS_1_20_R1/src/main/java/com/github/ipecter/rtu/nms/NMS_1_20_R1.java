@@ -11,14 +11,14 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.biome.Biome;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
-import org.bukkit.craftbukkit.v1_19_R2.CraftServer;
-import org.bukkit.craftbukkit.v1_19_R2.CraftWorld;
+import org.bukkit.craftbukkit.v1_20_R1.CraftServer;
+import org.bukkit.craftbukkit.v1_20_R1.CraftWorld;
 
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-public class NMS_1_19_R2 implements NMSInterface {
+public class NMS_1_20_R1 implements NMSInterface {
 
     private final DedicatedServer dedicatedServer = ((CraftServer) Bukkit.getServer()).getServer();
     private final ResourceKey<Registry<Biome>> resourceKey = Registries.BIOME;
