@@ -5,7 +5,7 @@ plugins {
 ConfigurableFileTree libsImplementation = fileTree(dir: 'libs-implementation', include: ['*.jar'])
 
 group = 'com.github.ipecter.rtu'
-version = '1.5.1'
+version = '1.5.2'
 
 repositories {
     mavenCentral()
@@ -34,24 +34,24 @@ jar {
 dependencies {
     compileOnly 'org.spigotmc:spigot-api:1.19.4-R0.1-SNAPSHOT'
 
-    extraLibs project(':NMS')
-    extraLibs project(':NMS_1_17_R1')
-    extraLibs project(':NMS_1_18_R1')
-    extraLibs project(':NMS_1_18_R2')
-    extraLibs project(':NMS_1_19_R1')
-    extraLibs project(':NMS_1_19_R2')
-    extraLibs project(':NMS_1_19_R3')
-    extraLibs project(':NMS_1_20_R1')
+    extraLibs project(path: ':NMS')
+    extraLibs project(path: ':NMS_1_17_R1', configuration: 'reobf')
+    extraLibs project(path: ':NMS_1_18_R1', configuration: 'reobf')
+    extraLibs project(path: ':NMS_1_18_R2', configuration: 'reobf')
+    extraLibs project(path: ':NMS_1_19_R1', configuration: 'reobf')
+    extraLibs project(path: ':NMS_1_19_R2', configuration: 'reobf')
+    extraLibs project(path: ':NMS_1_19_R3', configuration: 'reobf')
+    extraLibs project(path: ':NMS_1_20_R1', configuration: 'reobf')
     extraLibs libsImplementation
 
-    implementation project(':NMS')
-    implementation project(':NMS_1_17_R1')
-    implementation project(':NMS_1_18_R1')
-    implementation project(':NMS_1_18_R2')
-    implementation project(':NMS_1_19_R1')
-    implementation project(':NMS_1_19_R2')
-    implementation project(':NMS_1_19_R3')
-    implementation project(':NMS_1_20_R1')
+    implementation project(path: ':NMS')
+    implementation project(path: ':NMS_1_17_R1', configuration: 'reobf')
+    implementation project(path: ':NMS_1_18_R1', configuration: 'reobf')
+    implementation project(path: ':NMS_1_18_R2', configuration: 'reobf')
+    implementation project(path: ':NMS_1_19_R1', configuration: 'reobf')
+    implementation project(path: ':NMS_1_19_R2', configuration: 'reobf')
+    implementation project(path: ':NMS_1_19_R3', configuration: 'reobf')
+    implementation project(path: ':NMS_1_20_R1', configuration: 'reobf')
     implementation libsImplementation
 }
 

@@ -3,6 +3,6 @@ plugins {
 }
 
 dependencies {
-    implementation project(':NMS')
+    implementation project(path: ':NMS')
     paperweight.paperDevBundle("1.17.1-R0.1-SNAPSHOT")
 }
