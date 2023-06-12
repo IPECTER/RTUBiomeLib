@@ -44,7 +44,7 @@ repositories {
 }
 
 dependencies {
-  implementation 'com.github.IPECTER.RTUBiomeLib:RTUBiomeLib:1.5.0'
+  implementation 'com.github.IPECTER.RTUBiomeLib:RTUBiomeLib:1.5.2'
 }
 ```
 
@@ -61,6 +61,6 @@ Maven
 <dependency>
     <groupId>com.github.IPECTER.RTUBiomeLib</groupId>
     <artifactId>RTUBiomeLib</artifactId>
-    <version>1.5.0</version>
+    <version>1.5.2</version>
 </dependency>
 ```
