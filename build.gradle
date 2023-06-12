@@ -5,7 +5,7 @@ plugins {
 ConfigurableFileTree libsImplementation = fileTree(dir: 'libs-implementation', include: ['*.jar'])
 
 group = 'com.github.ipecter.rtu'
-version = '1.5.0'
+version = '1.5.1'
 
 repositories {
     mavenCentral()
