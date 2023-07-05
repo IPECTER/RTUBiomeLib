@@ -117,7 +117,7 @@ processResources {
 publishing {
     publications {
         maven(MavenPublication) {
-            groupId = 'com.github.ipecter'
+            groupId = 'com.github.IPECTER'
             artifactId = 'RTUBiomeLib'
             version = project.version
 
