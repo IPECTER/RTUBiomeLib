@@ -6,7 +6,7 @@ plugins {
 ConfigurableFileTree libsImplementation = fileTree(dir: 'libs-implementation', include: ['*.jar'])
 
 group = 'com.github.ipecter.rtu'
-version = '1.5.2'
+version = '1.6.0'
 
 repositories {
     mavenCentral()
@@ -33,6 +33,7 @@ jar {
 }
 
 dependencies {
+    implementation project(path: ':NMS_1_20_R2')
     compileOnly 'org.spigotmc:spigot-api:1.20.1-R0.1-SNAPSHOT'
 
     extraLibs project(path: ':NMS')
@@ -43,6 +44,7 @@ dependencies {
     extraLibs project(path: ':NMS_1_19_R2', configuration: 'reobf')
     extraLibs project(path: ':NMS_1_19_R3', configuration: 'reobf')
     extraLibs project(path: ':NMS_1_20_R1', configuration: 'reobf')
+    extraLibs project(path: ':NMS_1_20_R2', configuration: 'reobf')
     extraLibs libsImplementation
 
     implementation project(path: ':NMS')
@@ -53,6 +55,7 @@ dependencies {
     implementation project(path: ':NMS_1_19_R2', configuration: 'reobf')
     implementation project(path: ':NMS_1_19_R3', configuration: 'reobf')
     implementation project(path: ':NMS_1_20_R1', configuration: 'reobf')
+    implementation project(path: ':NMS_1_20_R2', configuration: 'reobf')
     implementation libsImplementation
 }
 
@@ -85,7 +88,7 @@ subprojects {
     }
 
     dependencies {
-        compileOnly "org.spigotmc:spigot-api:1.20.1-R0.1-SNAPSHOT"
+        compileOnly "org.spigotmc:spigot-api:1.20.2-R0.1-SNAPSHOT"
     }
 }
 
