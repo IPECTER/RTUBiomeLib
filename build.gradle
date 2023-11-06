@@ -1,7 +1,7 @@
 plugins {
     id 'java'
     id 'maven-publish'
-    id 'io.freefair.lombok' version '8.3'
+    id 'io.freefair.lombok' version '8.4'
 }
 
 ConfigurableFileTree libsImplementation = fileTree(dir: 'libs-implementation', include: ['*.jar'])
