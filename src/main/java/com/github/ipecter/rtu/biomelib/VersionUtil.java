@@ -29,10 +29,18 @@ public class VersionUtil {
         private final int version;
 
         public Version(String version) {
-            String major = Objects.requireNonNullElse(version.split("\\.")[0], "0");
-            String minor = Objects.requireNonNullElse(version.split("\\.")[1], "0");
-            String patch = Objects.requireNonNullElse(version.split("\\.")[2], "0");
-            this.version = Integer.parseInt(major + minor + patch);
+            String[] numbers = version.split("\\.");
+            String majorStr = numbers.length == 0 ? "0" : numbers[0];
+            String minorStr = numbers.length <= 1 ? "0" : numbers[1];
+            String patchStr = numbers.length <= 2 ? "0" : numbers[2];
+            this.version = Integer.parseInt(majorStr + minorStr + patchStr);
+        }
+
+        public Version(String major, String minor, String patch) {
+            String majorStr = (String)Objects.requireNonNullElse(major, "0");
+            String minorStr = (String)Objects.requireNonNullElse(minor, "0");
+            String patchStr = (String)Objects.requireNonNullElse(patch, "0");
+            this.version = Integer.parseInt(majorStr + minorStr + patchStr);
         }
 
     }
