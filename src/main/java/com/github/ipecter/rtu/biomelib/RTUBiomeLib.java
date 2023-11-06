@@ -11,7 +11,6 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public final class RTUBiomeLib extends JavaPlugin implements CommandExecutor {
 
-    private final static String VERSION = Bukkit.getServer().getClass().getPackage().getName().replace("org.bukkit.craftbukkit", "").replace(".", "");
     private static NMSInterface nmsInterface;
     private final String prefix = IridiumColorAPI.process("<GRADIENT:39cc1f>[ RTUBiomeLib ]</GRADIENT:a3a3a3> ");
 
@@ -22,7 +21,6 @@ public final class RTUBiomeLib extends JavaPlugin implements CommandExecutor {
     @Override
     public void onEnable() {
         Bukkit.getLogger().info(ChatColor.translateAlternateColorCodes('&', prefix + "&aEnable&f!"));
-        Bukkit.getLogger().info(ChatColor.translateAlternateColorCodes('&', prefix + "&fNMS: " + VERSION));
         loadNMS();
     }
 
@@ -38,29 +36,38 @@ public final class RTUBiomeLib extends JavaPlugin implements CommandExecutor {
     }
 
     private void loadNMS() {
-        switch (RTUBiomeLib.VERSION) {
-            case "v1_17_R1" -> {
+        String nms = "ERROR";
+        switch (VersionUtil.getVersion().getVersion()) {
+            case 1170, 1171 -> {
+                nms = "v1_17_R1";
                 nmsInterface = new NMS_1_17_R1();
             }
-            case "v1_18_R1" -> {
+            case 1180, 1181 -> {
+                nms = "v1_18_R1";
                 nmsInterface = new NMS_1_18_R1();
             }
-            case "v1_18_R2" -> {
+            case 1182 -> {
+                nms = "v1_18_R2";
                 nmsInterface = new NMS_1_18_R2();
             }
-            case "v1_19_R1" -> {
+            case 1190, 1191, 1192 -> {
+                nms = "v1_19_R1";
                 nmsInterface = new NMS_1_19_R1();
             }
-            case "v1_19_R2" -> {
+            case 1193 -> {
+                nms = "v1_19_R2";
                 nmsInterface = new NMS_1_19_R2();
             }
-            case "v1_19_R3" -> {
+            case 1194 -> {
+                nms = "v1_19_R3";
                 nmsInterface = new NMS_1_19_R3();
             }
-            case "v1_20_R1" -> {
+            case 1200, 1201 -> {
+                nms = "v1_20_R1";
                 nmsInterface = new NMS_1_20_R1();
             }
-            case "v1_20_R2" -> {
+            case 1202 -> {
+                nms = "v1_20_R2";
                 nmsInterface = new NMS_1_20_R2();
             }
             default -> {
@@ -68,5 +75,6 @@ public final class RTUBiomeLib extends JavaPlugin implements CommandExecutor {
                 this.getServer().getPluginManager().disablePlugin(this);
             }
         }
+        Bukkit.getLogger().info(ChatColor.translateAlternateColorCodes('&', prefix + "&fNMS: " + nms));
     }
 }
