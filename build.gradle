@@ -4,10 +4,10 @@ plugins {
     id 'io.freefair.lombok' version '8.3'
 }
 
-ConfigurableFileTree libsImplementation = fileTree(dir: 'libs-implementation', include: ['*.jar'])
+ConfigurableFileTree libs = fileTree(dir: 'libs', include: ['*.jar'])
 
 group = 'com.github.ipecter.rtu'
-version = '1.7.2'
+version = '1.8.0'
 
 repositories {
     mavenCentral()
@@ -47,7 +47,8 @@ dependencies {
     extraLibs project(path: ':NMS_1_19_R3', configuration: 'reobf')
     extraLibs project(path: ':NMS_1_20_R1', configuration: 'reobf')
     extraLibs project(path: ':NMS_1_20_R2', configuration: 'reobf')
-    extraLibs libsImplementation
+    extraLibs project(path: ':NMS_1_20_R3', configuration: 'reobf')
+    extraLibs libs
 
     implementation project(path: ':NMS')
     implementation project(path: ':NMS_1_17_R1', configuration: 'reobf')
@@ -58,7 +59,8 @@ dependencies {
     implementation project(path: ':NMS_1_19_R3', configuration: 'reobf')
     implementation project(path: ':NMS_1_20_R1', configuration: 'reobf')
     implementation project(path: ':NMS_1_20_R2', configuration: 'reobf')
-    implementation libsImplementation
+    implementation project(path: ':NMS_1_20_R3', configuration: 'reobf')
+    implementation libs
 
     compileOnly 'org.projectlombok:lombok:1.18.28'
     annotationProcessor 'org.projectlombok:lombok:1.18.28'
