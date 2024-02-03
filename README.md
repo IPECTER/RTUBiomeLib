@@ -1,4 +1,4 @@
-# [ RTUBiomeLib 1.8.9 ]
+# [ RTUBiomeLib 1.8.0 ]
 
 [ Minecraft Plugin ] 1.17.0 ~ 1.20.4 Biome Library, Get Custom Biome!
 
