@@ -1,4 +1,4 @@
-# [ RTUBiomeLib 1.8.0 ]
+# [ RTUBiomeLib 1.8.1 ]
 
 [ Minecraft Plugin ] 1.17.0 ~ 1.20.4 Biome Library, Get Custom Biome!
 
@@ -44,7 +44,7 @@ repositories {
 }
 
 dependencies {
-  implementation 'com.github.ipecter:RTUBiomeLib:1.8.0'
+  implementation 'com.github.ipecter:RTUBiomeLib:1.8.1'
 }
 ```
 
@@ -61,6 +61,6 @@ Maven
 <dependency>
     <groupId>com.github.ipecter</groupId>
     <artifactId>RTUBiomeLib</artifactId>
-    <version>1.8.0</version>
+    <version>1.8.1</version>
 </dependency>
 ```
