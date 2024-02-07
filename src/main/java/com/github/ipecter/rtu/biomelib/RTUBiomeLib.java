@@ -36,44 +36,17 @@ public final class RTUBiomeLib extends JavaPlugin implements CommandExecutor {
     }
 
     private void loadNMS() {
-        String nms = "ERROR";
-        switch (VersionUtil.getVersion().getVersion()) {
-            case 1170, 1171 -> {
-                nms = "v1_17_R1";
-                nmsInterface = new NMS_1_17_R1();
-            }
-            case 1180, 1181 -> {
-                nms = "v1_18_R1";
-                nmsInterface = new NMS_1_18_R1();
-            }
-            case 1182 -> {
-                nms = "v1_18_R2";
-                nmsInterface = new NMS_1_18_R2();
-            }
-            case 1190, 1191, 1192 -> {
-                nms = "v1_19_R1";
-                nmsInterface = new NMS_1_19_R1();
-            }
-            case 1193 -> {
-                nms = "v1_19_R2";
-                nmsInterface = new NMS_1_19_R2();
-            }
-            case 1194 -> {
-                nms = "v1_19_R3";
-                nmsInterface = new NMS_1_19_R3();
-            }
-            case 1200, 1201 -> {
-                nms = "v1_20_R1";
-                nmsInterface = new NMS_1_20_R1();
-            }
-            case 1202 -> {
-                nms = "v1_20_R2";
-                nmsInterface = new NMS_1_20_R2();
-            }
-            case 1203, 1204 -> {
-                nms = "v1_20_R3";
-                nmsInterface = new NMS_1_20_R3();
-            }
+        String nms = VersionUtil.getNMSVersion(VersionUtil.getVersionStr());
+        switch (nms) {
+            case "v1_17_R1" -> nmsInterface = new NMS_1_17_R1();
+            case "v1_18_R1" -> nmsInterface = new NMS_1_18_R1();
+            case "v1_18_R2" -> nmsInterface = new NMS_1_18_R2();
+            case "v1_19_R1" -> nmsInterface = new NMS_1_19_R1();
+            case "v1_19_R2" -> nmsInterface = new NMS_1_19_R2();
+            case "v1_19_R3" -> nmsInterface = new NMS_1_19_R3();
+            case "v1_20_R1" -> nmsInterface = new NMS_1_20_R1();
+            case "v1_20_R2" -> nmsInterface = new NMS_1_20_R2();
+            case "v1_20_R3" -> nmsInterface = new NMS_1_20_R3();
             default -> {
                 Bukkit.getLogger().warning("[ RTUBiomeLib ] Server version is unsupported version, Disabling RTUBiomeLib...");
                 this.getServer().getPluginManager().disablePlugin(this);
